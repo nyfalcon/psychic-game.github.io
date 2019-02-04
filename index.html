@@ -4,9 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Psychic Game</title>
+      <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- jQuery library -->
+
+<title>Psychic Game</title>
 </head>
 <body>
-    <script src="assets/css/style.css"></script>
+    <div id="jumbotron">
+       <div class="row>">
+           <div class="col-lg-12">
+                <h1>The Psychic Game</h1><br>
+                <h2 id="gamePrompt">Guess what letter I'm thinking of</h2><br>
+           <div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+               <h2>Wins: <span id="wins">0</span></h2> 
+            </div>
+        </div>
+
+
+        <div class="row" >
+                <div class="col-lg-12">
+                   <h2>Losses: <span id="losses">0</span></h2>
+                </div>
+            </div>
+           
+
+        <div class="row" >
+                <div class="col-lg-12">
+                   <h2>Guesses Left: <span id="remainingGuesses">9</span></h2> 
+                </div>
+              
+            </div>
+             
+        <div class="row">
+                    <div class="col-lg-12">
+                       <h2>Your Guesses so far: <span id="totalGuesses"></span></h2> 
+                    </div>
+                   
+                 </div>
+    </div>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script type="text/JavaScript">
+    $(document).ready(function(){ 
+        var tally =   {
+            _wins : 0,
+            _losses : 0,
+            _remainingGuesses : 9,
+            _totalGuesses : [],
+            _targetGuess : "x",
+            _keySelect : "y",
+        };
+    
+    // Assign display values to a variable
+        $("#wins").text(tally._wins);
+        $("#losses").text(tally._losses);
+        $("#remainingGuesses").text(tally._remainingGuesses);
+        $("#totalGuesses").text(tally._totalGuesses);
+        $("#targetGuess").text(tally._targetGuess);
+        $("#keySelect").text(tally._keySelect);
+
+    // Add each guess to the array with max of 9 guesses
+
+        = tally._totalGuesses ++1
+    
+    // Decrease remaining guesses with each guess
+
+        $("#totalGuesses").keypress(function(){
+        $(tally_remainingGuesses).text(i - = 1);
+        });
+
+    // IF statement to determine if user selection is win or lose
+
+        IF (tally._keySelect == tally._targetGuess) {
+            tally._wins ++
+        } else { tally._losses ++
+
+        }
+   
+    
+ 
+
+    });
+        </script>
+
+
+
+
+
+
+
+
+
+    </div>
 </body>
 </html>
