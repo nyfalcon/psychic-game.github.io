@@ -4,110 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <!-- jQuery library -->
-
-<title>Psychic Game</title>
+    <title>Document</title>
 </head>
 <body>
-    <div id="jumbotron">
-       <div class="row>">
-           <div class="col-lg-12">
-                <h1>The Psychic Game</h1><br>
-                <h2 id="gamePrompt">Guess what letter I'm thinking of</h2><br>
-           <div>
-        </div>
+    <h1>The Psychic Game</h1>
+    <p id="stats">
+    <h2>Guess what letter I'm thinking of</h2>
+    <h3>Wins: <span id="wins">0</span> </h3>
+    <h3>Losses: <span id="losses">0</span> </h3>
+    <h3>Guesses Left: <span id="guessesLeft">9</span> </h3>
+    <h3>Your Guesses so far: <span id="guesses">0</span></h3>
+    </p>
 
-        <div class="row">
-            <div class="col-lg-12">
-               <h2>Wins: <span id="wins">0</span></h2> 
-            </div>
-        </div>
-
-
-        <div class="row" >
-                <div class="col-lg-12">
-                   <h2>Losses: <span id="losses">0</span></h2>
-                </div>
-            </div>
-           
-
-        <div class="row" >
-                <div class="col-lg-12">
-                   <h2>Guesses Left: <span id="remainingGuesses">9</span></h2> 
-                </div>
-              
-            </div>
-             
-        <div class="row">
-                    <div class="col-lg-12">
-                       <h2>Your Guesses so far: <span id="totalGuesses"></span></h2> 
-                    </div>
-                   
-                 </div>
-    </div>
-    
+    <form name="randform">
+            <input type="button" value="Create Random String" onClick="randomString();"> 
+            <input type="text" name="randomfield" value="">
+            </form>
+            
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-        <script type="text/JavaScript">
-    $(document).ready(function(){ 
-        var tally =   {
-            _wins : 0,
-            _losses : 0,
-            _remainingGuesses : 9,
-            _totalGuesses : [],
-            _targetGuess : "x",
-            _keySelect : "y",
-        };
     
-    // Assign display values to a variable
-        $("#wins").text(tally._wins);
-        $("#losses").text(tally._losses);
-        $("#remainingGuesses").text(tally._remainingGuesses);
-        $("#totalGuesses").text(tally._totalGuesses);
-        $("#targetGuess").text(tally._targetGuess);
-        $("#keySelect").text(tally._keySelect);
+    <script type="text/javascript">
 
-    // Add each guess to the array with max of 9 guesses
+    var elWins = document.getElementById("wins");
+        elWins.textContent = 5;
 
-        = tally._totalGuesses ++1
-    
-    // Decrease remaining guesses with each guess
-
-        $("#totalGuesses").keypress(function(){
-        $(tally_remainingGuesses).text(i - = 1);
-        });
-
-    // IF statement to determine if user selection is win or lose
-
-        IF (tally._keySelect == tally._targetGuess) {
-            tally._wins ++
-        } else { tally._losses ++
-
-        }
+    var elLosses = document.getElementById("losses");
+        elLosses.textContent = 3;
    
-    
- 
+    var elguessesLeft = document.getElementById("guessesLeft");
+        elguessesLeft.textContent = 9;
 
-    });
-        </script>
-
-
-
-
-
+    var elguesses = document.getElementById("guesses");
+        elguesses.textContent = [];
+        function Guess(){
+            
+        };
 
 
-
-
-    </div>
+    </script>    
 </body>
+
+<script language="javascript" type="text/javascript">
+            
+    // function randomString(){
+    //     const alphabet = "abcdefghijklmnopqrstuvwxyz";
+    //     const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+    //     console.log("randomString :: ", randomLetter);
+    //     return "randomLetter";
+    //  }
+    
+    // window.addEventListener("keyup", function(event){
+    //     let keyPressed = event.key;
+    //     console.log("key pressed :: ", keyPressed);
+    //     let randResult = randomString();
+    
+    // if (keyPressed === randResult){
+    //     alert("Match!!")
+    //     } else {
+    //     alert("No match");
+    //     }
+    // })
+    // 
+
+        function psychic (){
+        var genKeyResult = "";
+        var userGuessResult = "";
+
+        //var genKey = 
+        window.addEventListener("keyup", function(e) {
+            var chars = "abcdefghiklmnopqrstuvwxyz";
+            var string_length = 1;
+            var randomstring = '';
+            for (var i=0; i<string_length; i++) {
+            var rnum = Math.floor(Math.random() * chars.length);
+            randomstring += chars.substring(rnum,rnum+1);}
+            console.log(randomstring);
+            genKeyResult = randomstring;
+           // console.log(genKeyResult);
+        },false);
+
+          
+       
+        //var userGuess = 
+            window.addEventListener("keyup", function(event){
+            console.log(event.key);
+            userGuessResult = event.key;
+        
+        }, false);
+
+    
+       
+
+        if (genKeyResult == userGuessResult) {
+            console.log("It's a match!");
+
+        } else {
+            alert('Sorry, you lost!');
+        }
+    }
+    psychic();
+   
+    </script>
 </html>
