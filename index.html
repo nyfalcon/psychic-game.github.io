@@ -17,24 +17,21 @@
     <h3>Your Guesses so far: <span id="guesses">0</span></h3>
     </p>
 
-    <form name="randform">
-            <input type="button" value="Create Random String" onClick="randomString();"> 
-            <input type="text" name="randomfield" value="">
-            </form>
-            
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-    <script type="text/javascript">
-
-    var elWins = document.getElementById("wins");
-        elWins.textContent = 5;
-
-    var elLosses = document.getElementById("losses");
-        elLosses.textContent = 3;
+</body>          
    
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <script type="text/javascript" language="text/javascript">
+    // Increment by one when a match occurs
+    var elWins = document.getElementById("wins");
+        elWins.textContent = 0;
+    // Increment by one when a match is false
+    var elLosses = document.getElementById("losses");
+        elLosses.textContent = 0;
+   // Decrement by one for each key press 
     var elguessesLeft = document.getElementById("guessesLeft");
         elguessesLeft.textContent = 9;
-
+   // Store userGuessResult 
     var elguesses = document.getElementById("guesses");
         elguesses.textContent = [];
         function Guess(){
@@ -42,68 +39,34 @@
         };
 
 
-    </script>    
-</body>
 
-<script language="javascript" type="text/javascript">
-            
-    // function randomString(){
-    //     const alphabet = "abcdefghijklmnopqrstuvwxyz";
-    //     const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
-    //     console.log("randomString :: ", randomLetter);
-    //     return "randomLetter";
-    //  }
-    
-    // window.addEventListener("keyup", function(event){
-    //     let keyPressed = event.key;
-    //     console.log("key pressed :: ", keyPressed);
-    //     let randResult = randomString();
-    
-    // if (keyPressed === randResult){
-    //     alert("Match!!")
-    //     } else {
-    //     alert("No match");
-    //     }
-    // })
-    // 
-
-        function psychic (){
-        var genKeyResult = "";
-        var userGuessResult = "";
-
-        //var genKey = 
-        window.addEventListener("keyup", function(e) {
-            var chars = "abcdefghiklmnopqrstuvwxyz";
-            var string_length = 1;
-            var randomstring = '';
-            for (var i=0; i<string_length; i++) {
-            var rnum = Math.floor(Math.random() * chars.length);
-            randomstring += chars.substring(rnum,rnum+1);}
-            console.log(randomstring);
-            genKeyResult = randomstring;
-           // console.log(genKeyResult);
-        },false);
-
-          
-       
-        //var userGuess = 
-            window.addEventListener("keyup", function(event){
-            console.log(event.key);
-            userGuessResult = event.key;
-        
-        }, false);
-
-    
-       
-
-        if (genKeyResult == userGuessResult) {
-            console.log("It's a match!");
-
-        } else {
-            alert('Sorry, you lost!');
-        }
+    function randomString(){
+        const alphabet = "abcdefghijklmnopqrstuvwxyz";
+        const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+        console.log("randomString :: ", randomLetter);
+        return "randomLetter";
     }
-    psychic();
+    window.addEventListener("keyup", function(event){
+        let keyPressed = event.key;
+        console.log("key pressed :: ", keyPressed);
+       
+        // Add keyPressed value to elguesses array 
+       // elguesses.textContent.push(event.key);
+        //document.getElementById("guesses").textContent = elguesses.textContent;
+        
+        let randResult = randomString();
+        if (keyPressed === randResult){
+            alert("Match!!")
+            elWins.textContent ++;
+    
+        } else {
+            alert("No match");
+            elguessesLeft.textContent --;
+            elLosses.textContent ++;
+        }
+        
+    })
    
-    </script>
+</script>
+    
 </html>
